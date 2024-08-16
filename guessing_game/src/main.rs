@@ -28,8 +28,12 @@ fn main() {
             // This is basically OK and Err handling, basically it will crash the program and display the message in the expect
             .expect("Failed to read the line");
         // trim() will eliminate any whitespace on a string. parse will convert a string to another type, we're setting it to a u32 value
-        // The expect value here is used as error handling, it it doesn't get what it wants, it will print out the expect message
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // Created values for error handling, numbers are okay and anything else will just continue
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
         // Think of the {} as pincers, they hold the value in place
         println!("You guessed: {guess}");
 
@@ -38,9 +42,10 @@ fn main() {
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You got it!"),
+            Ordering::Equal => { 
                 println!("You win!");
                 break;
+            }
         }
     }
 }
