@@ -10,8 +10,6 @@ fn main() {
 
     // gen_range method is brought into scope with the use rand::Rng statement. gen_range is an expression that takes start..=end values and is inclusive
     let secret_number = rand::thread_rng().gen_range(1..=100);
-
-    println!("The secret number is: {secret_number}");
     // loop creates an infinite loop
     loop {
         println!("Please input your guess.");
