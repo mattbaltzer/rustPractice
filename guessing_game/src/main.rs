@@ -37,8 +37,10 @@ fn main() {
         // If guess is greater than secret_number, it will print out "Too big!"
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
-            Ordering::Equal => println!("You got it!"),
             Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => println!("You got it!"),
+                println!("You win!");
+                break;
         }
     }
 }
