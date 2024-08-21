@@ -101,14 +101,35 @@
 //     (s, length)
 // }
 
+// fn main() {
+//     let s1 = String::from("hello");
+
+//     let len = calculate_length(&s1);
+
+//     println!("The length of '{s1}' is {len}.");
+// }
+
+// // s is a reference to a String
+// fn calculate_length(s: &String) -> usize {
+//     s.len()
+// } // Here s goes out of scope. Because it does not have ownership of what it refers to
+// // it is not dropped
+
+// fn main() {
+//     let mut s = String::from("hello");
+
+//     change(&mut s);
+// }
+
+// fn change(some_string: &mut String) {
+//     some_string.push_str(", world");
+// }
+
 fn main() {
-    let s1 = String::from("hello");
+    let mut s = String::from("hello");
 
-    let len = calculate_length(&s1);
+    let r1 = &mut s;
+    let r2 = &mut s;
 
-    println!("The length of '{s1}' is {len}.");
-}
-
-fn calculate_length(s: &String) -> usize {
-    s.len()
+    println!("{}, {}", r1, r2);
 }
