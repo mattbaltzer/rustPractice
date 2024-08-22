@@ -135,3 +135,12 @@
 //     println!("{}, {}", r1, r2, r3);
 // }
 
+// fn main() {
+//     let reference_to_nothing = dangle();
+// }
+
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+
+//     &s
+// }
