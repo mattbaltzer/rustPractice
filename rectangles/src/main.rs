@@ -29,27 +29,61 @@
 //     dimensions.0 * dimensions.1
 // }
 
-//example with structs/refactoring with structs
+//example with structs/refactoring with structs BEST ONE
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
+// //create an instance of a Rectangle struct with values
+// fn main() {
+//     let rect1 = Rectangle {
+//         width: 30,
+//         height: 30,
+//     };
+
+//     println!(
+//         "The area of the rectangle is {} square pixels",
+//         area(&rect1)
+//     );
+// }
+// //accesses the width/height fields of the Rectangle instance
+// //gives more clarity to the properties of the struct
+// fn area(rectangle: &Rectangle) -> u32 {
+//     rectangle.width * rectangle.height
+// }
+
+// debug example
+//this calls the debug functionality provided with Rust to print out debugging information
+// #[derive(Debug)]
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
+
+// fn main() {
+//     let rect1 = Rectangle {
+//         width: 30, 
+//         height: 50,
+//     };
+
+//     //this will call for debug information on rect1
+//     println!("rect1 is {rect1:?}");
+// }
+
+//better debug example using the dbg! macro
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
 }
 
-//create an instance of a Rectangle struct with values
 fn main() {
+    let scale = 2;
     let rect1 = Rectangle {
-        width: 30,
-        height: 30,
+        width: dbg!(30 * scale),
+        height: 50,
     };
 
-    println!(
-        "The area of the rectangle is {} square pixels",
-        area(&rect1)
-    );
-}
-
-//accesses the width/height fields of the Rectangle instance
-//gives more clarity to the properties of the struct
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
+    //this prevents debug from taking ownership of rect1
+    dbg!(&rect1);
 }
