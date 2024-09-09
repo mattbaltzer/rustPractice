@@ -95,6 +95,7 @@ struct  Rectangle {
     height: u32,
 }
 
+// used for the creation of a method
 impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
